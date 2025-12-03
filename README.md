@@ -1,8 +1,9 @@
-# SwiftBar Pi-hole Plugin
+# SwiftBar Pi-hole Plugin (macOS)
 
 A SwiftBar menubar plugin and helper scripts that start, stop, and monitor a Pi-hole container running via Docker Desktop on macOS. Data persists under `scripts/pihole/etc-pihole` so you keep your settings between container restarts.
 
 ## Prerequisites
+- macOS only: this setup uses macOS-specific network commands and paths.
 - SwiftBar installed and configured ([download](https://swiftbar.app/)).
 - Docker Desktop for macOS running and CLI available ([download](https://www.docker.com/products/docker-desktop/)).
 - `make` and standard macOS command-line tools.
