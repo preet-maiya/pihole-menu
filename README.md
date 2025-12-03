@@ -13,6 +13,10 @@ A SwiftBar menubar plugin and helper scripts that start, stop, and monitor a Pi-
    - `plugins/pihole.1s.sh` (`PIHOLE_SCRIPT`, `DOCKER_START_SCRIPT`, `DOCKER_STOP_SCRIPT`, `ICON_BASE`)
    - `scripts/pihole/pihole.sh` (`PIHOLE_DIR`)
 2. Configure the correct network interface name in `plugins/pihole.1s.sh` (`INTERFACE_NAME`) and `scripts/pihole/pihole.sh` (`IFACE`) if you do not use `Wi-Fi`.
+3. (Recommended) Allow the helper commands to run without password prompts by adding this via `visudo` (replace `YOUR_USERNAME`):
+   ```
+   YOUR_USERNAME ALL=(root) NOPASSWD: /usr/sbin/networksetup, /usr/bin/dscacheutil, /usr/bin/killall
+   ```
 3. Create the persistent Pi-hole data directory and ensure helper scripts are executable:
    ```bash
    make setup
