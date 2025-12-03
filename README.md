@@ -17,7 +17,7 @@ A SwiftBar menubar plugin and helper scripts that start, stop, and monitor a Pi-
    ```bash
    make setup
    ```
-4. (Optional) Symlink the plugin into SwiftBar's plugin folder:
+4. (Optional) Symlink the plugin into SwiftBar's plugin folder (be sure SwiftBar's Plugin Directory matches `SWIFTBAR_PLUGIN_DIR`, defaulting to `~/Library/Application Support/SwiftBar/Plugins`):
    ```bash
    make install-plugin
    ```
