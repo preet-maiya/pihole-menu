@@ -2,10 +2,12 @@
 
 A SwiftBar menubar plugin and helper scripts that start, stop, and monitor a Pi-hole container running via Docker Desktop on macOS. Data persists under `scripts/pihole/etc-pihole` so you keep your settings between container restarts.
 
+![macOS](https://img.shields.io/badge/macOS-000?logo=apple&logoColor=white) [![SwiftBar](https://img.shields.io/badge/SwiftBar-181717?logo=github&logoColor=white)](https://github.com/swiftbar/SwiftBar) ![Pi--hole](https://img.shields.io/badge/Pi--hole-8A0303?logo=pihole&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-0db7ed?logo=docker&logoColor=white)
+
 ## Prerequisites
-- macOS only: this setup uses macOS-specific network commands and paths.
-- SwiftBar installed and configured ([download](https://swiftbar.app/)).
-- Docker Desktop for macOS running and CLI available ([download](https://www.docker.com/products/docker-desktop/)).
+- ![macOS](https://img.shields.io/badge/macOS-000?logo=apple&logoColor=white) macOS only: this setup uses macOS-specific network commands and paths.
+- [![SwiftBar](https://img.shields.io/badge/SwiftBar-181717?logo=github&logoColor=white)](https://github.com/swiftbar/SwiftBar) SwiftBar installed and configured ([download](https://swiftbar.app/)).
+- ![Docker](https://img.shields.io/badge/Docker-0db7ed?logo=docker&logoColor=white) Docker Desktop for macOS running and CLI available ([download](https://www.docker.com/products/docker-desktop/)).
 - `make` and standard macOS command-line tools.
 
 ## Setup
@@ -17,16 +19,16 @@ A SwiftBar menubar plugin and helper scripts that start, stop, and monitor a Pi-
    ```
    YOUR_USERNAME ALL=(root) NOPASSWD: /usr/sbin/networksetup, /usr/bin/dscacheutil, /usr/bin/killall
    ```
-3. Create the persistent Pi-hole data directory and ensure helper scripts are executable:
+4. Create the persistent Pi-hole data directory and ensure helper scripts are executable:
    ```bash
    make setup
    ```
-4. (Optional) Symlink the plugin into SwiftBar's plugin folder (be sure SwiftBar's Plugin Directory matches `SWIFTBAR_PLUGIN_DIR`, defaulting to `~/Library/Application Support/SwiftBar/Plugins`):
+5. (Optional) Symlink the plugin into SwiftBar's plugin folder (be sure SwiftBar's Plugin Directory matches `SWIFTBAR_PLUGIN_DIR`, defaulting to `~/Library/Application Support/SwiftBar/Plugins`):
    ```bash
    make install-plugin
    ```
    By default this links to `~/Library/Application Support/SwiftBar/Plugins/pihole.1s.sh`; override `SWIFTBAR_PLUGIN_DIR` if needed.
-5. Review `scripts/pihole/docker-compose.yml` and set `TZ`, `FTLCONF_webserver_api_password`, and any other Pi-hole environment variables you want.
+6. Review `scripts/pihole/docker-compose.yml` and set `TZ`, `FTLCONF_webserver_api_password`, and any other Pi-hole environment variables you want.
 
 ## Usage
 - Start Pi-hole and point macOS DNS to it: `make start`
